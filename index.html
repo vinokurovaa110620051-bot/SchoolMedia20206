@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Школа Медиа 2026 — участники</title>
+<style>
+:root{
+  --bg:#f5f5f3; --card:#fff; --text:#171717; --muted:#777;
+  --line:#e7e7e4; --accent:#171717; --soft:#f0f0ed;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+.wrap{max-width:1200px;margin:auto;padding:34px 20px 60px}
+.header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+h1{font-size:clamp(30px,5vw,54px);line-height:.95;margin:0 0 10px;letter-spacing:-.04em}
+.sub{color:var(--muted);font-size:15px}
+.badge{background:#171717;color:white;border-radius:999px;padding:10px 14px;font-size:13px;white-space:nowrap}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+input,select{border:1px solid var(--line);background:white;border-radius:12px;padding:12px 14px;font:inherit;outline:none}
+input{min-width:260px;flex:1}
+.table-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:auto;box-shadow:0 5px 25px rgba(0,0,0,.035)}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:#fafaf8;cursor:pointer;position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#fafaf8}
+.team{display:inline-flex;background:var(--soft);border-radius:999px;padding:6px 10px;font-size:13px}
+.px{font-weight:800;font-variant-numeric:tabular-nums}
+.project{font-weight:600}
+.empty{text-align:center;color:var(--muted);padding:40px}
+.footer{color:var(--muted);font-size:12px;margin-top:14px}
+@media(max-width:600px){
+ .wrap{padding:22px 12px 40px}
+ .header{display:block}.badge{display:inline-block;margin-top:15px}
+ input{min-width:100%}
+ th,td{padding:13px 12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <div>
+      <h1>Школа Медиа<br>2026</h1>
+      <div class="sub">Участники · команды · PX · достижения · проекты</div>
+    </div>
+    <div class="badge" id="count">0 участников</div>
+  </header>
+
+  <div class="controls">
+    <input id="search" placeholder="Поиск участника, команды или проекта…">
+    <select id="teamFilter"><option value="">Все команды</option></select>
+    <select id="sort">
+      <option value="name">По имени</option>
+      <option value="px">По PX</option>
+      <option value="team">По команде</option>
+    </select>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Участник</th><th>Команда</th><th>PX</th><th>Достижения</th><th>Проект</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div class="footer">Обновляй данные в массиве <b>participants</b> внутри файла index.html.</div>
+</div>
+
+<script>
+const participants = [
+  // Пример:
+  // {name:"Анна Петрова", team:"Команда 1", px:180, achievements:"🏆 Лучший проект", project:"Памятные даты"},
+  // {name:"Иван Иванов", team:"Команда 2", px:125, achievements:"⭐ Активист", project:"Памятные даты"},
+];
+
+const rows = document.getElementById('rows');
+const search = document.getElementById('search');
+const teamFilter = document.getElementById('teamFilter');
+const sort = document.getElementById('sort');
+const count = document.getElementById('count');
+
+[...new Set(participants.map(x=>x.team).filter(Boolean))]
+  .sort((a,b)=>a.localeCompare(b,'ru'))
+  .forEach(team=>{
+    const o=document.createElement('option'); o.value=team; o.textContent=team; teamFilter.appendChild(o);
+  });
+
+function render(){
+  const q=search.value.trim().toLowerCase();
+  const team=teamFilter.value;
+  let data=participants.filter(x=>{
+    const hay=[x.name,x.team,x.achievements,x.project].join(' ').toLowerCase();
+    return (!q||hay.includes(q)) && (!team||x.team===team);
+  });
+  if(sort.value==='px') data.sort((a,b)=>(b.px||0)-(a.px||0));
+  if(sort.value==='name') data.sort((a,b)=>a.name.localeCompare(b.name,'ru'));
+  if(sort.value==='team') data.sort((a,b)=>(a.team||'').localeCompare(b.team||'','ru'));
+
+  count.textContent=`${data.length} ${data.length===1?'участник':data.length>=2&&data.length<=4?'участника':'участников'}`;
+  rows.innerHTML=data.length?data.map(x=>`
+    <tr>
+      <td><b>${esc(x.name)}</b></td>
+      <td><span class="team">${esc(x.team)}</span></td>
+      <td class="px">${x.px ?? '—'}</td>
+      <td>${esc(x.achievements || '—')}</td>
+      <td class="project">${esc(x.project || '—')}</td>
+    </tr>`).join(''):`<tr><td colspan="5" class="empty">Пока нет участников или ничего не найдено.</td></tr>`;
+}
+function esc(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+search.addEventListener('input',render);
+teamFilter.addEventListener('change',render);
+sort.addEventListener('change',render);
+render();
+</script>
+</body>
+</html>
