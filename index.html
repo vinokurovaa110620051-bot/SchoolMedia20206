@@ -2,120 +2,121 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Школа Медиа 2026 — участники</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>Школа Медиа 2026</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Russo+One&display=swap');
 :root{
-  --bg:#f5f5f3; --card:#fff; --text:#171717; --muted:#777;
-  --line:#e7e7e4; --accent:#171717; --soft:#f0f0ed;
+ --bg:#090909;--paper:#f1eee5;--white:#f8f7f2;--muted:#a7a39b;
+ --blue:#6655ff;--pink:#ff39a9;--lime:#c9ff00;--cyan:#23e6df;--yellow:#ffd329;
+ --line:#393939;--shadow:8px 8px 0 #000;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
-.wrap{max-width:1200px;margin:auto;padding:34px 20px 60px}
-.header{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
-h1{font-size:clamp(30px,5vw,54px);line-height:.95;margin:0 0 10px;letter-spacing:-.04em}
-.sub{color:var(--muted);font-size:15px}
-.badge{background:#171717;color:white;border-radius:999px;padding:10px 14px;font-size:13px;white-space:nowrap}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-input,select{border:1px solid var(--line);background:white;border-radius:12px;padding:12px 14px;font:inherit;outline:none}
-input{min-width:260px;flex:1}
-.table-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:auto;box-shadow:0 5px 25px rgba(0,0,0,.035)}
-table{width:100%;border-collapse:collapse;min-width:760px}
-th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:middle}
-th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:#fafaf8;cursor:pointer;position:sticky;top:0}
-tr:last-child td{border-bottom:0}
-tbody tr:hover{background:#fafaf8}
-.team{display:inline-flex;background:var(--soft);border-radius:999px;padding:6px 10px;font-size:13px}
-.px{font-weight:800;font-variant-numeric:tabular-nums}
-.project{font-weight:600}
-.empty{text-align:center;color:var(--muted);padding:40px}
-.footer{color:var(--muted);font-size:12px;margin-top:14px}
-@media(max-width:600px){
- .wrap{padding:22px 12px 40px}
- .header{display:block}.badge{display:inline-block;margin-top:15px}
- input{min-width:100%}
- th,td{padding:13px 12px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:"IBM Plex Mono",monospace;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:4px 4px;z-index:20}
+a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+header{padding:20px 0 10px;border-bottom:1px solid #555;display:flex;justify-content:space-between;gap:15px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.cursor{position:absolute;font-size:36px;transform:rotate(-12deg);color:var(--blue);text-shadow:3px 3px 0 #000;pointer-events:none}
+.hero{min-height:590px;display:grid;align-content:center;position:relative;padding:60px 0}
+.kicker{font-size:13px;color:var(--lime);margin-bottom:16px}
+h1{font-family:"Russo One",sans-serif;font-size:clamp(58px,11vw,145px);line-height:.8;letter-spacing:-.06em;margin:0;text-transform:uppercase;text-shadow:7px 7px 0 #000}
+.title-blue{color:var(--blue)}.title-white{color:var(--white)}
+.slogan{font-family:"Russo One",sans-serif;font-size:clamp(20px,3vw,38px);margin-top:28px;display:inline-block;background:var(--lime);color:#000;padding:8px 16px;transform:rotate(-1deg);box-shadow:7px 7px 0 #000}
+.hero-note{position:absolute;right:3%;top:18%;width:240px;font-family:cursive;font-size:24px;line-height:1.05;transform:rotate(5deg);color:var(--white)}
+.hero-note span{color:var(--lime);font-size:36px}
+.section{padding:55px 0;border-top:1px solid #444;position:relative}
+.section-title{font-family:"Russo One",sans-serif;font-size:clamp(28px,5vw,58px);line-height:.9;text-transform:uppercase;margin:0 0 26px}
+.tape{display:inline-block;padding:8px 14px;background:var(--blue);color:#fff;transform:rotate(-2deg);box-shadow:5px 5px 0 #000}
+.controls{display:grid;grid-template-columns:1fr 190px 170px;gap:10px;margin-bottom:15px}
+input,select{border:2px solid #666;background:#111;color:#fff;border-radius:0;padding:14px;font:inherit}
+input:focus,select:focus{border-color:var(--lime);outline:none}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{border:1px solid #555;padding:10px 13px;background:#101010}.stat b{font-family:"Russo One";font-size:20px;margin-right:7px}
+.status{color:var(--muted);font-size:11px;margin-bottom:14px}
+.table-wrap{border:1px solid #555;background:#0d0d0d;overflow:auto;box-shadow:8px 8px 0 #000}
+table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:16px;border-bottom:1px solid #333;text-align:left}th{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;background:#141414}tr:hover td{background:#151515}
+.name{font-weight:700}.team{display:inline-block;padding:5px 9px;border:1px solid var(--blue);color:#c9c3ff}.px{font-family:"Russo One";font-size:21px;color:var(--lime)}
+.badge{display:inline-block;padding:5px 8px;margin:2px;background:var(--pink);color:#000;font-size:11px;font-weight:700}.project{font-weight:600}
+.cards{display:none}
+.levels{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:25px}
+.level{min-height:120px;border:1px solid #555;padding:16px;position:relative;background:#0e0e0e}
+.level:not(:last-child):after{content:"→";position:absolute;right:-16px;top:40px;font-size:26px;color:var(--lime);z-index:2}
+.level:nth-child(2){background:#11165a}.level:nth-child(3){background:#24124e}.level:nth-child(4){background:#123e3b}.level:nth-child(5){background:#44320a}
+.num{color:var(--muted);font-size:11px}.level h3{font-family:"Russo One";margin:14px 0 7px;font-size:17px}.level p{font-size:11px;color:#ddd;margin:0}
+footer{padding:45px 0 70px;border-top:1px solid #444;color:var(--muted);display:flex;justify-content:space-between;font-size:11px}
+.mobile-only{display:none}
+@media(max-width:760px){
+ .wrap{width:calc(100% - 20px)}header{font-size:9px}.hero{min-height:520px;padding:45px 0}.hero-note{position:relative;right:auto;top:auto;margin-top:40px;font-size:20px;width:210px}.cursor{right:5%;top:42%}
+ h1{font-size:60px}.slogan{font-size:17px;margin-top:20px}.section{padding:38px 0}.section-title{font-size:34px}
+ .controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}.table-wrap{display:none}.mobile-only{display:block}.cards{display:grid;gap:10px}
+ .card{background:#111;border:1px solid #555;padding:16px;box-shadow:5px 5px 0 #000}.card-top{display:flex;justify-content:space-between;gap:12px}.card-name{font-family:"Russo One";font-size:19px}.card-px{font-family:"Russo One";color:var(--lime);font-size:18px}.card-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.card-project{border-top:1px solid #444;margin-top:13px;padding-top:11px;font-size:12px}.label{font-size:9px;color:var(--muted);text-transform:uppercase;margin-bottom:3px}
+ .levels{grid-template-columns:1fr 1fr;gap:8px}.level{min-height:105px}.level:not(:last-child):after{display:none}.level h3{font-size:15px}
+ footer{display:block;line-height:1.8}.footer-right{margin-top:10px}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="header">
-    <div>
-      <h1>Школа Медиа<br>2026</h1>
-      <div class="sub">Участники · команды · PX · достижения · проекты</div>
-    </div>
-    <div class="badge" id="count">0 участников</div>
-  </header>
+<header><span>ШКОЛА МЕДИА 2026</span><span>ПИРОГОВСКИЙ УНИВЕРСИТЕТ</span></header>
 
-  <div class="controls">
-    <input id="search" placeholder="Поиск участника, команды или проекта…">
-    <select id="teamFilter"><option value="">Все команды</option></select>
-    <select id="sort">
-      <option value="name">По имени</option>
-      <option value="px">По PX</option>
-      <option value="team">По команде</option>
-    </select>
-  </div>
+<section class="hero">
+ <div class="cursor">↗</div>
+ <div class="kicker">01 / ТЫ ЗАХОДИШЬ В ИГРУ</div>
+ <h1><span class="title-white">МЕДИА</span><br><span class="title-blue">ШКОЛА</span></h1>
+ <div class="slogan">ЗДЕСЬ ИДЕИ СТАНОВЯТСЯ МЕДИА.</div>
+ <div class="hero-note">твой ход →<br><span>создать</span><br>что-то своё</div>
+</section>
 
-  <div class="table-card">
-    <table>
-      <thead>
-        <tr>
-          <th>Участник</th><th>Команда</th><th>PX</th><th>Достижения</th><th>Проект</th>
-        </tr>
-      </thead>
-      <tbody id="rows"></tbody>
-    </table>
-  </div>
-  <div class="footer">Обновляй данные в массиве <b>participants</b> внутри файла index.html.</div>
+<section class="section">
+ <h2 class="section-title"><span class="tape">02 / ЧТО ТЕБЯ ЖДЁТ</span></h2>
+ <div class="levels">
+  <div class="level"><div class="num">01</div><h3>СТАРТ</h3><p>Приходишь в Школу Медиа.</p></div>
+  <div class="level"><div class="num">02</div><h3>НАПРАВЛЕНИЕ</h3><p>Фото · Видео · Дизайн · Текст.</p></div>
+  <div class="level"><div class="num">03</div><h3>КОМАНДА</h3><p>Собираете медиапроект вместе.</p></div>
+  <div class="level"><div class="num">04</div><h3>ПРОЕКТ</h3><p>Создаёте, проверяете, защищаете.</p></div>
+  <div class="level"><div class="num">05</div><h3>КОНАКОВО</h3><p>30.10 — 01.11 / финальный уровень.</p></div>
+ </div>
+</section>
+
+<section class="section">
+ <h2 class="section-title"><span style="color:var(--pink)">03 / УЧАСТНИКИ</span></h2>
+ <div class="controls">
+  <input id="search" placeholder="НАЙТИ УЧАСТНИКА ИЛИ ПРОЕКТ…">
+  <select id="team"><option value="">ВСЕ КОМАНДЫ</option></select>
+  <select id="sort"><option value="name">ПО ИМЕНИ</option><option value="px">ПО PX</option><option value="team">ПО КОМАНДЕ</option></select>
+ </div>
+ <div class="stats">
+  <div class="stat"><b id="people">0</b>УЧАСТНИКОВ</div>
+  <div class="stat"><b id="teams">0</b>КОМАНД</div>
+  <div class="stat"><b id="totalpx">0</b>PX</div>
+ </div>
+ <div class="status" id="status">ПОДКЛЮЧАЕМ GOOGLE ТАБЛИЦУ…</div>
+ <div class="table-wrap"><table><thead><tr><th>Участник</th><th>Команда</th><th>PX</th><th>Достижения</th><th>Проект</th></tr></thead><tbody id="rows"></tbody></table></div>
+ <div class="mobile-only cards" id="cards"></div>
+</section>
+
+<section class="section">
+ <h2 class="section-title"><span style="color:var(--cyan)">04 / ТВОЙ ПРОГРЕСС</span></h2>
+ <p style="max-width:620px;color:#bbb;line-height:1.5">Собирай опыт, PX и достижения. Каждый следующий шаг — ещё один уровень к реальным проектам и Медиацентру.</p>
+ <div style="margin-top:25px;border:2px solid var(--blue);height:22px;padding:3px;box-shadow:6px 6px 0 #000"><div style="width:62%;height:100%;background:var(--blue)"></div></div>
+ <div style="display:flex;justify-content:space-between;font-size:10px;color:#aaa;margin-top:8px"><span>СТАРТ</span><span>МЕДИАЦЕНТР</span></div>
+</section>
+
+<footer><span>ШКОЛА МЕДИА 2026 · МЕДИАЦЕНТР</span><span class="footer-right">БОЛЬШЕ ЧЕМ ОБУЧЕНИЕ. РЕАЛЬНЫЕ ПРОЕКТЫ. РЕАЛЬНЫЕ ЛЮДИ.</span></footer>
 </div>
 
 <script>
-const participants = [
-  // Пример:
-  // {name:"Анна Петрова", team:"Команда 1", px:180, achievements:"🏆 Лучший проект", project:"Памятные даты"},
-  // {name:"Иван Иванов", team:"Команда 2", px:125, achievements:"⭐ Активист", project:"Памятные даты"},
-];
-
-const rows = document.getElementById('rows');
-const search = document.getElementById('search');
-const teamFilter = document.getElementById('teamFilter');
-const sort = document.getElementById('sort');
-const count = document.getElementById('count');
-
-[...new Set(participants.map(x=>x.team).filter(Boolean))]
-  .sort((a,b)=>a.localeCompare(b,'ru'))
-  .forEach(team=>{
-    const o=document.createElement('option'); o.value=team; o.textContent=team; teamFilter.appendChild(o);
-  });
-
-function render(){
-  const q=search.value.trim().toLowerCase();
-  const team=teamFilter.value;
-  let data=participants.filter(x=>{
-    const hay=[x.name,x.team,x.achievements,x.project].join(' ').toLowerCase();
-    return (!q||hay.includes(q)) && (!team||x.team===team);
-  });
-  if(sort.value==='px') data.sort((a,b)=>(b.px||0)-(a.px||0));
-  if(sort.value==='name') data.sort((a,b)=>a.name.localeCompare(b.name,'ru'));
-  if(sort.value==='team') data.sort((a,b)=>(a.team||'').localeCompare(b.team||'','ru'));
-
-  count.textContent=`${data.length} ${data.length===1?'участник':data.length>=2&&data.length<=4?'участника':'участников'}`;
-  rows.innerHTML=data.length?data.map(x=>`
-    <tr>
-      <td><b>${esc(x.name)}</b></td>
-      <td><span class="team">${esc(x.team)}</span></td>
-      <td class="px">${x.px ?? '—'}</td>
-      <td>${esc(x.achievements || '—')}</td>
-      <td class="project">${esc(x.project || '—')}</td>
-    </tr>`).join(''):`<tr><td colspan="5" class="empty">Пока нет участников или ничего не найдено.</td></tr>`;
-}
-function esc(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-search.addEventListener('input',render);
-teamFilter.addEventListener('change',render);
-sort.addEventListener('change',render);
-render();
+const SHEET_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_L8XAfJ-8tq1AprkZHdtmvPAoUlSyBs376B-f1UyLHcvSRJ3-Hk3hJj2btRSXr9Du1ckCeNKp4_RF/pub?output=csv";
+let participants=[];
+const $=id=>document.getElementById(id),esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+function csv(t){let o=[],r=[],c="",q=false;for(let i=0;i<t.length;i++){let x=t[i],n=t[i+1];if(x=='"'&&q&&n=='"'){c+='"';i++;continue}if(x=='"'){q=!q;continue}if(x==','&&!q){r.push(c);c="";continue}if((x=='\n'||x=='\r')&&!q){if(x=='\r'&&n=='\n')i++;r.push(c);c="";if(r.some(v=>v.trim()))o.push(r);r=[];continue}c+=x}if(c||r.length){r.push(c);if(r.some(v=>v.trim()))o.push(r)}return o}
+async function load(){try{let r=await fetch(SHEET_URL,{cache:"no-store"});if(!r.ok)throw Error();let d=csv(await r.text()),h=d[0].map(x=>x.trim().toLowerCase()),i=n=>h.indexOf(n);participants=d.slice(1).map(r=>({name:r[i("участник")]||"",team:r[i("команда")]||"",px:Number(String(r[i("px")]||"0").replace(",","."))||0,achievements:r[i("достижения")]||"",project:r[i("проект")]||""})).filter(x=>x.name.trim());$("status").textContent="● GOOGLE ТАБЛИЦА ПОДКЛЮЧЕНА";teams();render()}catch(e){$("status").textContent="○ НЕ УДАЛОСЬ ЗАГРУЗИТЬ GOOGLE ТАБЛИЦУ";render()}}
+function teams(){let t=[...new Set(participants.map(x=>x.team).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ru"));$("team").innerHTML='<option value="">ВСЕ КОМАНДЫ</option>'+t.map(x=>`<option>${esc(x)}</option>`).join("")}
+function data(){let q=$("search").value.toLowerCase().trim(),tm=$("team").value,s=$("sort").value,d=participants.filter(x=>(!q||[x.name,x.team,x.achievements,x.project].join(" ").toLowerCase().includes(q))&&(!tm||x.team===tm));if(s=="px")d.sort((a,b)=>b.px-a.px);if(s=="name")d.sort((a,b)=>a.name.localeCompare(b.name,"ru"));if(s=="team")d.sort((a,b)=>a.team.localeCompare(b.team,"ru")||a.name.localeCompare(b.name,"ru"));return d}
+function ach(v){return v?v.split(/[,;]+/).map(x=>x.trim()).filter(Boolean).map(x=>`<span class="badge">${esc(x)}</span>`).join(""):"—"}
+function render(){let d=data();$("people").textContent=d.length;$("teams").textContent=new Set(d.map(x=>x.team).filter(Boolean)).size;$("totalpx").textContent=d.reduce((a,x)=>a+x.px,0);$("rows").innerHTML=d.length?d.map(x=>`<tr><td class="name">${esc(x.name)}</td><td><span class="team">${esc(x.team||"—")}</span></td><td class="px">${x.px}</td><td>${ach(x.achievements)}</td><td class="project">${esc(x.project||"—")}</td></tr>`).join(""):`<tr><td colspan="5" style="text-align:center;padding:45px;color:#777">НИЧЕГО НЕ НАЙДЕНО</td></tr>`;$("cards").innerHTML=d.length?d.map(x=>`<article class="card"><div class="card-top"><div class="card-name">${esc(x.name)}</div><div class="card-px">${x.px} PX</div></div><div class="card-meta"><span class="team">${esc(x.team||"—")}</span>${ach(x.achievements)}</div><div class="card-project"><div class="label">ПРОЕКТ</div>${esc(x.project||"—")}</div></article>`).join(""):`<div style="padding:40px;text-align:center;color:#777">НИЧЕГО НЕ НАЙДЕНО</div>`}
+$("search").addEventListener("input",render);$("team").addEventListener("change",render);$("sort").addEventListener("change",render);load();
 </script>
-</body>
-</html>
+</body></html>
