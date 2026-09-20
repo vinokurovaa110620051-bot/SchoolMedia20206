@@ -14,7 +14,7 @@ body{margin:0;background:var(--bg);color:var(--white);font-family:"IBM Plex Mono
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:4px 4px;z-index:20}
 .wrap{width:min(1180px,calc(100% - 28px));margin:auto}
 header{padding:18px 0;border-bottom:1px solid #3f3f3f;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#d6d3ca}
-.logo{display:block;width:min(690px,90vw);margin:35px auto 25px;object-fit:contain}
+.logo{display:block;width:min(210px,28vw);margin:24px 0 18px auto;object-fit:contain}
 .intro{display:flex;justify-content:space-between;gap:30px;align-items:end;border-bottom:1px solid #444;padding:0 0 28px}
 .intro h1{font-family:"Russo One",sans-serif;font-size:clamp(32px,5vw,62px);line-height:.9;margin:0;text-transform:uppercase}
 .tape{display:inline-block;background:var(--blue);padding:7px 13px;transform:rotate(-2deg)}
@@ -26,7 +26,7 @@ input,select{width:100%;border:2px solid #555;background:#111;color:#fff;border-
 input:focus,select:focus{border-color:var(--lime);outline:none}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
 .stat{border:1px solid #4d4d4d;padding:9px 12px;background:#101010;font-size:11px}.stat b{font-family:"Russo One";font-size:19px;margin-right:7px}
-.status{color:var(--muted);font-size:10px;margin-bottom:12px}
+.status{display:none}
 .table-wrap{border:1px solid #555;background:#0d0d0d;overflow:auto;box-shadow:7px 7px 0 #000}
 table{width:100%;border-collapse:collapse;min-width:760px}
 th,td{padding:15px;border-bottom:1px solid #333;text-align:left}
@@ -41,7 +41,7 @@ footer{border-top:1px solid #444;padding:22px 0 45px;color:#777;font-size:10px;d
 @media(max-width:760px){
  .wrap{width:calc(100% - 20px)}
  header{font-size:8px}
- .logo{width:100%;margin:25px auto 18px}
+ .logo{width:150px;margin:18px 0 15px auto}
  .intro{display:block;padding-bottom:22px}
  .intro h1{font-size:34px}
  .note{margin-top:18px;font-size:11px}
@@ -86,7 +86,7 @@ footer{border-top:1px solid #444;padding:22px 0 45px;color:#777;font-size:10px;d
     <div class="stat"><b id="teams">0</b>КОМАНД</div>
     <div class="stat"><b id="totalpx">0</b>PX</div>
   </div>
-  <div class="status" id="status">ПОДКЛЮЧАЕМ GOOGLE ТАБЛИЦУ…</div>
+  
 
   <div class="table-wrap">
     <table>
@@ -137,10 +137,10 @@ async function load(){
    px:Number(String(r[i("px")]||"0").replace(",","."))||0,
    achievements:r[i("достижения")]||"",project:r[i("проект")]||""
   })).filter(x=>x.name.trim());
-  $("status").textContent="● GOOGLE ТАБЛИЦА ПОДКЛЮЧЕНА";
+  
   setupTeams();render();
  }catch(e){
-  $("status").textContent="○ НЕ УДАЛОСЬ ЗАГРУЗИТЬ GOOGLE ТАБЛИЦУ";
+  
   render();
  }
 }
